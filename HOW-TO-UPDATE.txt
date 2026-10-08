@@ -1,0 +1,15 @@
+CRESTVISTA WEBSITE – HOW TO ADD A LISTING
+
+1. Put the plot photos/videos in a folder called "photos" next to index.html
+   (name them simply, e.g. a1-1.jpg, a1-2.jpg, a1.mp4). Keep photos under 300 KB each.
+2. Open listings.js in Notepad. Copy one plot block (from { to }) and paste it below
+   the last one, with a comma between blocks.
+3. Change the details. For photos write: images: ["photos/a1-1.jpg","photos/a1-2.jpg"]
+4. For video, upload to YouTube as "Unlisted" and paste the link:
+   videos: ["https://youtu.be/XXXXXXXXXXX"]
+   (Short MP4 files also work: videos: ["photos/a1.mp4"], keep each under 20 MB.)
+5. Delete the three SAMPLE blocks. Save, then upload the changed files to GitHub.
+6. Change the WhatsApp number or phone numbers at the top of listings.js.
+
+Each plot needs a different id (e.g. konza-a1, konza-a2).
+Or just send me the details and photos and I will update it for you.

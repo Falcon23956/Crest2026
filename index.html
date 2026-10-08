@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crestvista Properties Ltd | Homes, Plots & Rentals in Kenya</title>
+<meta name="description" content="Apartments, houses, plots in Konza and rentals across Nairobi. Browse listings, watch videos and book a viewing with Crestvista Properties.">
+<meta property="og:title" content="Crestvista Properties | Homes, Plots & Rentals">
+<meta property="og:description" content="Browse listings and book a viewing.">
+<meta property="og:image" content="assets/logo.png">
+<link rel="icon" href="assets/logo.png">
+<style>
+:root{--ink:#14171c;--gold:#c9a227;--gold-d:#8a6d0f;--paper:#faf8f3;--line:#e4dfd2;--muted:#5d6068;--wa:#1faa59}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+.btn{display:inline-block;padding:12px 20px;border-radius:6px;border:2px solid var(--ink);background:transparent;font:600 15px system-ui,sans-serif;text-decoration:none;cursor:pointer;color:var(--ink)}
+.btn.gold{background:var(--gold);border-color:var(--gold)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn.sm{padding:8px 14px;font-size:14px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 20px;max-width:1100px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 17px Georgia,serif}
+.brand img{height:46px;width:46px;object-fit:contain}
+nav{display:flex;gap:18px;align-items:center}
+nav a{text-decoration:none;font-size:15px}
+@media(max-width:700px){nav a.hide{display:none}.brand span{font-size:15px}}
+
+/* hero: survey-plan grid, the one memorable element */
+.hero{background:var(--ink);color:#fff;padding:72px 0 64px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(201,162,39,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(201,162,39,.22) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(120deg,transparent 15%,#000 90%);mask-image:linear-gradient(120deg,transparent 15%,#000 90%)}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(32px,6vw,56px);max-width:15em}
+.hero p{max-width:34em;font-size:18px;color:#d8d6ce}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.hero .btn:not(.gold):not(.wa){border-color:#fff;color:#fff}
+.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;font-size:14px;color:#cfcdc4}
+.facts b{display:block;font:700 18px Georgia,serif;color:var(--gold)}
+
+.why p{max-width:46em}
+.why .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:20px}
+.why h3{font-size:19px}
+.why .col{border-top:3px solid var(--gold);padding-top:12px}
+
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 26px}
+.filters input,.filters select{padding:10px 12px;border:1px solid var(--line);border-radius:6px;font:inherit;background:#fff;min-width:150px;flex:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{height:190px;background:#2a2e35 linear-gradient(135deg,#2a2e35,#3d4048);display:flex;align-items:center;justify-content:center;color:#b9b6aa;font-size:14px;position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:10px;left:10px;background:var(--gold);color:var(--ink);font:700 12px system-ui;padding:4px 10px;border-radius:20px}
+.tag.Reserved{background:#e8a33d}.tag.Sold{background:#8b2f2f;color:#fff}
+.tag.sample{left:auto;right:10px;background:#fff}
+.card .body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:19px;margin:0}
+.meta{color:var(--muted);font-size:14px}
+.price{font:700 20px Georgia,serif;color:var(--gold-d);margin-top:auto;padding-top:8px}
+.card .actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.empty{padding:36px;border:2px dashed var(--line);border-radius:10px;text-align:center;color:var(--muted)}
+
+.modal{position:fixed;inset:0;background:rgba(10,12,16,.75);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow:auto;z-index:50}
+.modal.open{display:flex}
+.panel{background:#fff;border-radius:10px;max-width:760px;width:100%;padding:22px;position:relative}
+.x{position:absolute;right:10px;top:6px;border:0;background:none;font-size:30px;cursor:pointer;line-height:1}
+.media{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:12px 0}
+.media>*{flex:0 0 100%;scroll-snap-align:start;border-radius:8px;max-height:60vh;background:#000;object-fit:cover;aspect-ratio:16/9;border:0}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.specs div{background:var(--paper);padding:10px 12px;border-radius:6px;font-size:14px}
+.specs b{display:block;color:var(--muted);font-weight:500;font-size:12px}
+
+.visit{background:var(--gold);color:var(--ink)}
+.visit p{max-width:40em}
+.services .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.services p{margin:0;color:var(--muted)}
+form.c{display:grid;gap:10px;max-width:520px}
+form.c input,form.c textarea{padding:12px;border:1px solid var(--line);border-radius:6px;font:inherit;width:100%}
+footer{background:var(--ink);color:#cfcdc4;padding:32px 0;font-size:14px}
+footer a{color:#fff}
+.float{position:fixed;right:16px;bottom:16px;z-index:30;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.top{background:var(--ink);color:#cfcdc4;font-size:13px}.top .in{max-width:1100px;margin:0 auto;padding:7px 20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.top a{color:#fff;text-decoration:none}
+.search{background:#fff;color:var(--ink);border-radius:10px;padding:14px;margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;max-width:860px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.search select,.search input{padding:12px;border:1px solid var(--line);border-radius:6px;font:inherit;width:100%;background:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 4px}.pill{padding:9px 16px;border:1px solid var(--line);border-radius:30px;background:#fff;font:600 14px system-ui;cursor:pointer}.pill.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.specline{display:flex;gap:14px;font-size:14px;color:var(--ink);margin-top:2px}
+.band{background:var(--ink);color:#fff}.band .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center}.band p{color:#d8d6ce}
+@media(max-width:760px){.band .wrap{grid-template-columns:1fr}}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;counter-reset:s}.steps div{counter-increment:s;border-top:3px solid var(--gold);padding-top:12px}.steps div:before{content:counter(s);font:700 28px Georgia,serif;color:var(--gold-d);display:block}
+.trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:32px;font-size:14px;color:#cfcdc4}
+.sell{background:var(--gold)}.sell p{max-width:42em}
+.topcat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}.topcat button{text-align:left;padding:20px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer;font:inherit}.topcat b{font:700 20px Georgia,serif;display:block}.topcat span{color:var(--muted);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:8px 0 14px;list-style:none}.chips li{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:5px 12px;font-size:13px}.near li{margin:2px 0;font-size:14px}h4{margin:14px 0 4px;font:700 15px system-ui}</style>
+</head>
+<body>
+<div class="top"><div class="in"><span id="tAddr"></span><span><a id="tPhone" href="#"></a> · <a id="tMail" href="#"></a></span></div></div>
+<header><div class="bar">
+  <a class="brand" href="#top"><img src="assets/logo.png" alt="Crestvista logo"><span>Crestvista Properties</span></a>
+  <nav><a class="hide" href="#listings">Properties</a><a class="hide" href="#konza">Konza plots</a><a class="hide" href="#sell">Sell or let</a><a class="hide" href="#contact">Contact</a><a class="btn wa sm" id="hdrWa" href="#">WhatsApp</a></nav>
+</div></header>
+<main id="top">
+<div class="hero"><div class="wrap">
+  <h1>Find your next home, plot or investment</h1>
+  <p>Apartments, houses, commercial space and land across Nairobi and beyond, including plots in Konza. Every listing has clear details and a direct line to our team.</p>
+  <p id="behalf" style="font-size:15px"></p>
+  <div class="search">
+    <select id="hCat" aria-label="Property type"><option value="">All types</option><option>Apartment</option><option>House</option><option>Plot</option><option>Commercial</option></select>
+    <select id="hPur" aria-label="Buy or rent"><option value="">Buy or rent</option><option>For sale</option><option>To let</option></select>
+    <input id="hQ" placeholder="Area, e.g. Kasarani" aria-label="Area">
+    <button class="btn gold" id="hGo">Search</button>
+  </div>
+  <div class="trust"><span>Viewings arranged on request</span><span>Title and payment terms shared upfront</span><span>Sales, lettings and management</span></div>
+</div></div>
+
+<section id="listings" style="background:#fff"><div class="wrap">
+  <h2>Properties</h2>
+  <div class="pills" id="pills"></div>
+  <div class="filters">
+    <input id="q" type="search" placeholder="Search by name or area" aria-label="Search">
+    <select id="fPur" aria-label="Buy or rent"><option value="">Buy or rent</option><option>For sale</option><option>To let</option></select>
+    <select id="fBeds" aria-label="Bedrooms"><option value="">Any bedrooms</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
+    <input id="fMax" type="number" min="0" placeholder="Max price (KES)" aria-label="Maximum price">
+    <button class="btn sm" id="clr">Clear</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="band" id="konza"><div class="wrap">
+  <div><h2>Konza plots</h2><p>Konza Technopolis is a planned smart city in Machakos County, south-east of Nairobi near the Nairobi–Mombasa highway and railway. We market plots there with video walk-throughs, clear title details and site visits you can book.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px"><button class="btn gold" id="konzaBtn">View Konza plots</button><a class="btn wa" id="konzaWa" href="#">Book a site visit</a></div></div>
+  <div class="steps" style="grid-template-columns:1fr 1fr"><div><b>Enquire</b><br>Pick a plot and message us.</div><div><b>Visit</b><br>See the land with our team.</div><div><b>Agree terms</b><br>Cash or instalments.</div><div><b>Transfer</b><br>Title paperwork completed.</div></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What we do</h2>
+  <div class="topcat">
+    <button data-cat="Apartment"><b>Apartments</b><span>To buy or rent</span></button>
+    <button data-cat="House"><b>Houses</b><span>Maisonettes, bungalows, villas</span></button>
+    <button data-cat="Plot"><b>Land and plots</b><span>Residential and investment</span></button>
+    <button data-cat="Commercial"><b>Commercial</b><span>Offices, shops, warehouses</span></button>
+  </div>
+  <p class="meta" style="margin-top:18px">We also offer property management, tenant sourcing and investment advisory.</p>
+</div></section>
+
+<section class="sell" id="sell"><div class="wrap">
+  <h2>Sell or let your property with us</h2>
+  <p>Tell us about your property and we will advise on price, market it to buyers and tenants, and handle viewings and negotiation.</p>
+  <button class="btn" style="background:var(--ink);color:#fff" id="sellBtn">List my property on WhatsApp</button>
+</div></section>
+
+<section id="contact" style="background:#fff"><div class="wrap">
+  <h2>Contact us</h2>
+  <p id="contactLine"></p>
+  <form class="c" id="cf">
+    <input id="cn" placeholder="Your name" required>
+    <textarea id="cm" rows="4" placeholder="What are you looking for?" required></textarea>
+    <button class="btn wa" type="submit">Send on WhatsApp</button>
+  </form>
+</div></section>
+</main>
+<footer><div class="wrap"><b style="color:#fff">Crestvista Properties Ltd</b><br><span id="ftAddr"></span><br><span id="ftContact"></span></div></footer>
+<a class="btn wa float" id="floatWa" href="#">WhatsApp us</a>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Property details"><div class="panel"><button class="x" id="close" aria-label="Close">×</button><div id="detail"></div></div></div>
+<script src="listings.js"></script>
+<script>
+const S=window.SITE,L=window.LISTINGS||[];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const wa=t=>`https://wa.me/${S.whatsapp}?text=${encodeURIComponent(t)}`;
+const kes=p=>p.price>0?"KES "+Number(p.price).toLocaleString("en-KE")+(p.purpose==="To let"?" / month":""):"Call for price";
+const safeUrl=u=>/^(https?:\/\/|photos\/|plots\/|assets\/)/i.test(u)?u:"";
+let cat="";
+["hdrWa","floatWa"].forEach(i=>$(i).href=wa("Hello Crestvista, I'm interested in a property I saw on your website."));
+$("konzaWa").href=wa("Hello Crestvista, I would like to book a site visit to see plots in Konza.");
+$("sellBtn").href="#";$("sellBtn").onclick=()=>location.href=wa("Hello Crestvista, I would like to sell or let my property. Here are the details:");
+$("tAddr").textContent=S.address;$("tPhone").textContent=S.phones[0];$("tPhone").href="tel:+"+S.whatsapp;$("tMail").textContent=S.email;$("tMail").href="mailto:"+S.email;
+$("ftAddr").textContent=S.address;$("ftContact").textContent=S.phones.join(" / ")+" · "+S.email;
+$("contactLine").textContent="Call "+S.phones.join(" or ")+", or send a message below.";
+if(S.onBehalfOf)$("behalf").textContent="Crestvista Properties "+S.onBehalfOf;
+$("cf").addEventListener("submit",e=>{e.preventDefault();location.href=wa(`Hello, my name is ${$("cn").value}. ${$("cm").value}`)});
+
+const cats=["All",...new Set(L.map(p=>p.category))];
+function pills(){$("pills").innerHTML=cats.map(c=>`<button class="pill ${(c==="All"?"":c)===cat?"on":""}" data-c="${c==="All"?"":esc(c)}">${esc(c)}${c==="All"?"":"s"}</button>`).join("")}
+function setCat(c,scroll){cat=c;pills();render();if(scroll)$("listings").scrollIntoView()}
+$("pills").addEventListener("click",e=>{const b=e.target.closest(".pill");if(b)setCat(b.dataset.c)});
+document.querySelectorAll(".topcat button").forEach(b=>b.onclick=()=>setCat(b.dataset.cat,1));
+$("konzaBtn").onclick=()=>{$("q").value="Konza";setCat("Plot",1)};
+$("hGo").onclick=()=>{$("q").value=$("hQ").value;$("fPur").value=$("hPur").value;setCat($("hCat").value,1)};
+$("clr").onclick=()=>{["q","fPur","fBeds","fMax"].forEach(i=>$(i).value="");setCat("")};
+
+function embed(v){
+  const y=String(v).match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
+  if(y)return `<iframe src="https://www.youtube.com/embed/${y[1]}" allowfullscreen loading="lazy" title="Property video"></iframe>`;
+  const u=safeUrl(v);return u?`<video src="${esc(u)}" controls playsinline preload="metadata"></video>`:"";
+}
+function specs(p){return [p.beds>0?p.beds+" bed":"",p.baths>0?p.baths+" bath":"",p.size].filter(Boolean).map(esc).join('<span>·</span>')}
+function render(){
+  const q=$("q").value.toLowerCase(),pu=$("fPur").value,bd=+$("fBeds").value||0,mx=+$("fMax").value||Infinity;
+  const list=L.filter(p=>(!cat||p.category===cat)&&(!pu||p.purpose===pu)&&((p.title+" "+p.location).toLowerCase().includes(q))&&(p.beds||0)>=bd&&(!p.price||p.price<=mx));
+  const g=$("grid");
+  if(!L.length){g.innerHTML='<div class="empty">New listings are being added. Message us on WhatsApp for what is available now.</div>';return}
+  if(!list.length){g.innerHTML='<div class="empty">No properties match these filters. Try clearing one.</div>';return}
+  g.innerHTML=list.map(p=>{const img=safeUrl((p.images||[])[0]);
+    return `<article class="card"><div class="thumb">${img?`<img src="${esc(img)}" alt="${esc(p.title)}" loading="lazy">`:"Photos coming soon"}<span class="tag ${esc(p.status)}">${esc(p.purpose)} · ${esc(p.status||"Available")}</span>${p.sample?'<span class="tag sample">Sample</span>':""}</div>
+    <div class="body"><div class="meta">${esc(p.subtype||p.category)}</div><h3>${esc(p.title)}</h3><div class="meta">${esc(p.location)}</div><div class="specline">${specs(p)}</div><div class="price">${kes(p)}</div>
+    <div class="actions"><button class="btn sm" data-id="${esc(p.id)}">View details</button><a class="btn wa sm" href="${wa(`Hello Crestvista, I'm interested in ${p.title}, ${p.location}.`)}">Enquire</a></div></div></article>`}).join("");
+}
+["q","fPur","fBeds","fMax"].forEach(i=>$(i).addEventListener("input",render));
+$("grid").addEventListener("click",e=>{const b=e.target.closest("button[data-id]");if(b)openD(b.dataset.id)});
+function openD(id){
+  const p=L.find(x=>x.id===id);if(!p)return;
+  const media=(p.videos||[]).map(embed).join("")+(p.images||[]).map(i=>safeUrl(i)?`<img src="${esc(safeUrl(i))}" alt="${esc(p.title)}">`:"").join("");
+  const map=safeUrl(p.map),cell=(k,v)=>v?`<div><b>${k}</b>${esc(v)}</div>`:"";
+  $("detail").innerHTML=`<h2>${esc(p.title)}</h2>${media?`<div class="media">${media}</div>`:""}
+  <div class="specs">${cell("Price",kes(p))}${cell("Type",(p.subtype||p.category)+" · "+p.purpose)}${cell("Location",p.location)}${cell("Size",p.size)}${cell("Bedrooms",p.beds>0?p.beds:"")}${cell("Bathrooms",p.baths>0?p.baths:"")}${cell("Title",p.title_type)}${cell("Terms",p.terms)}${cell("Status",p.status||"Available")}</div>
+  <p>${esc(p.description)}</p>${(p.features||[]).length?`<h4>Features</h4><ul class="chips">${p.features.map(f=>`<li>${esc(f)}</li>`).join("")}</ul>`:""}${(p.nearby||[]).length?`<h4>Distances</h4><ul class="near">${p.nearby.map(f=>`<li>${esc(f)}</li>`).join("")}</ul>`:""}
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn wa" href="${wa(`Hello Crestvista, I'm interested in ${p.title}, ${p.location}. Can I book a viewing?`)}">Book a viewing</a><a class="btn" href="tel:+${S.whatsapp}">Call us</a>${map?`<a class="btn" href="${esc(map)}" target="_blank" rel="noopener">View on map</a>`:""}</div>`;
+  $("modal").classList.add("open");
+}
+function closeD(){$("modal").classList.remove("open");$("detail").innerHTML=""}
+$("close").onclick=closeD;
+$("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeD()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeD()});
+pills();render();
+</script>
+</body>
+</html>
